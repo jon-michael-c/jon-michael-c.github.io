@@ -1,5 +1,6 @@
 * {
   font-family: 'Poppins', sans-serif;
+  
 }
 
 .back {
@@ -97,12 +98,15 @@
   }
   .grid {
     margin: 0.1in 0.2in;
+    height: 250vh;
   }
+  
 }
 
 .footer {
   background: rgb(99, 84, 192);
   color: white;
+  position: relative;
 }
 
 .footer a {
