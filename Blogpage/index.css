@@ -1,0 +1,110 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.back {
+  background-image: url("./images/pexels-negative-space-34088.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+}
+
+.navbar {
+  margin: 0 2in;
+}
+
+.navbar-toggler {
+  color: white;
+}
+.welcome {
+  height: 60vh;
+}
+
+.block {
+  font-size: 4rem;
+  height: 300px;
+  width: 50%;
+  color: rgb(255, 255, 255);
+  margin:  auto auto;
+  padding: 100px;
+  text-align: center;
+  
+}
+
+.block-content {
+  margin: auto;
+}
+
+.transparent {
+  background-color: rgba(72, 59, 150, 0.6);
+  
+}
+
+.sm-icons {
+  margin: 10px;
+  color: white;
+}
+
+.grid {
+  height: 100vh;
+  margin: 0.5in 2in;
+}
+
+.col-md {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  min-height: 100%;
+  background: white;
+  border: none;
+}
+.card-content {
+  display: flex;
+}
+
+.icon {
+  padding: 30px;
+  margin: 10px;
+  color: rgba(72, 59, 150, 0.6);
+  border-radius: 5%;
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    margin: 0 0.4in;
+  }
+  .grid {
+    margin: 0.5in 0.7in;
+  }
+}
+
+@media (max-width: 758) {
+  .navbar {
+    margin: 0 0.4in;
+  }
+  .grid {
+    margin: 0.3in 0.4in;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    margin: 0 0.2in;
+  }
+  .grid {
+    margin: 0.1in 0.2in;
+  }
+}
+
+.footer {
+  background: rgb(99, 84, 192);
+  color: white;
+}
+
+.footer a {
+  color: rgba(28, 21, 65, 0.6)
+}
