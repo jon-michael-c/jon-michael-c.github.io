@@ -6,14 +6,16 @@ html {
     background-color: #181a1b;
     color: white;
 }
+
 h1 {
     text-align: center;
+    margin: 10px;
     
 }
 
 h2 {
     text-decoration: underline;
-    margin: 50px 20px 50px 20px;
+    margin: 20px 10px 20px 10px;
 }
 
 code {
@@ -35,4 +37,8 @@ a {
 
 .footer p {
     text-align: center;
+}
+
+#intro-content {
+    margin: 0 0 0 50px;
 }
