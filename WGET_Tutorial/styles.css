@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     background-color: #181a1b;
     color: white;
@@ -9,14 +13,26 @@ h1 {
 
 h2 {
     text-decoration: underline;
-    margin: 50px 0 50px 0;
+    margin: 50px 20px 50px 20px;
 }
 
 code {
     background-color: #313537;
     padding: 10px;
+    margin: 40px;
 }
 
 a {
     color: rgb(62, 107, 62);
+}
+
+.footer {
+    background-color: #181a1b;
+    width: 100%;
+    display: flex;
+
+}
+
+.footer p {
+    text-align: center;
 }
