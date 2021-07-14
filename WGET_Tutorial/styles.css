@@ -33,15 +33,14 @@ p {
     line-height: 1.5em;
 }
 
-table {
-    background-color: #3e4446;
+table, th, td {
+    border: 1px solid #3e4446;
 }
 
 td {
     background-color: #3e4446;
     padding: 15px;
 }
-
 
 
 
