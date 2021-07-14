@@ -60,6 +60,14 @@ td {
 
 }
 
+.wget {
+    margin: 0 0in 0 0.5in; 
+}
+
+.curl {
+    margin: 0 0in 0 0.5in;
+}
+
 .footer {
     background-color: #181a1b;
     width: 100%;
