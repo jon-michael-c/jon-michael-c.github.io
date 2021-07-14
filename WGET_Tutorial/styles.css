@@ -29,8 +29,39 @@ a {
     color: rgb(62, 107, 62);
 }
 
+p {
+    line-height: 1.5em;
+}
+
+table {
+    background-color: #3e4446;
+}
+
+tr {
+    background-color: aliceblue;
+}
+
+td {
+    padding: 15px;
+}
+
+
+
+
+
 .content {
-    margin: 0.2in 0.2in 0.5in 0.2in;
+    margin: 0.5in 0.5in 0.5in 0.5in;
+}
+
+
+.intro-content {
+    margin: 0 0in 0 0.5in;
+}
+
+.intro-content h3 {
+    text-decoration: underline;
+    margin: 0.2in 0 0.2in 0;
+
 }
 
 .footer {
@@ -50,15 +81,9 @@ a {
     text-decoration: underline;
 }
 
-#intro-content {
-    margin: 0 3in 0 0.5in;
-}
-
-
-
 #cred-cont {
     display: flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
     list-style: none;
 }
 
