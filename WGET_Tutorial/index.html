@@ -14,10 +14,53 @@
     <div class="content">
         <div class="intro">
             <h2 id="intro-header">Intro</h2>
-            <p id="intro-content">WGET is a simple command used on the terminal to collect
-                 files from the internet, mainly integrated within GNU/Linux operating systems. It works by making request
-                to the internet and pulls back requested items to be downloaded. This could be anything from a file, picture, or spreadsheet. 
-                CURL works similiarly to the WGET in pulling data off the from internet. However, cURL is powered by the libcurl </p>
+            <div class="intro-content">
+                <h3>How do you use the programs and what are they for?</h3>
+                <p>WGET is a simple command used on the terminal to collect 
+                files from the internet, mainly integrated within GNU/Linux operating systems. It works by 
+                making requests to the internet and pulls back requested items to be downloaded. This could be anything from a file,
+                 picture, or spreadsheet.  CURL works similarly to the WGET in pulling data off the 
+                 internet. However, cURL is powered by the libcurl library and allows for upload/file 
+                 transfers. WGET uses more common protocols such as HTTP, HTTPS, FTP and FTPS. While CURL allows for
+                  a much broader protocol coverage across the board. Another key difference is that due to the set focus of downloading for WGET, it comes with features to allow 
+                  for a much easier download experience, such as resuming incomplete files, persistent connections, and NLS-based language support. 
+                </p>
+                <h3>When would you use one or the other to download a CSV file?</h3>
+                <p>Both programs can be utilized in different ways depending on the use-case of the CSV file. For example if the CSV file was used to track a company’s shipping address locations, a single file could contain thousands upon thousands of entries. If this file was needed to be shared to a server URL, you would be using CURL to upload and download different iterations of the file. It would allow you to upload and store your backup and retrieve it from the console with a script for easier data entry. If the file was already uploaded to the cloud or there multiple CSV files needed to be downloaded, WGET would be able to accommodate better due to its resume and multidownload features. 
+                </p>
+                <h3>Breakdown of the flag options</h3>
+                <table>
+                    <tr>
+                        <td><em>-i</em></td>
+                        <td>Includes the header info</td>
+                    </tr>
+                    <tr>
+                        <td><em>-O</em></td>
+                        <td> Downloads a file</td>
+                    </tr>
+                    <tr>
+                        <td><em>-qc</em></td>
+                        <td>Quit download with resuming if failed</td>
+                    </tr>
+                    <tr>
+                        <td><em>-qcO</em></td>
+                        <td>Same as <em>-qc</em> but with specified download location</td>
+                    </tr>
+                    <tr>
+                        <td><em>-U</em></td>
+                        <td>Download url using an agent provided</td>
+                    </tr>
+                    <tr>
+                        <td><em>-p</em>&#60;dir>&#60;dir></td>
+                        <td><em>Downloads file from url to directory</em></td>
+                    </tr>
+                    <tr>
+                        <td><em>-c</em></td>
+                        <td>Continue aborted downloads</td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
         <div class="windows">
             <h2>Windows</h2>
