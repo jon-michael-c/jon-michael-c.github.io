@@ -1,4 +1,5 @@
 * {
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -28,6 +29,10 @@ a {
     color: rgb(62, 107, 62);
 }
 
+.content {
+    margin: 0.2in 0.2in 0.5in 0.2in;
+}
+
 .footer {
     background-color: #181a1b;
     width: 100%;
@@ -37,8 +42,26 @@ a {
 
 .footer p {
     text-align: center;
+    width: 100%;
+}
+
+
+#title {
+    text-decoration: underline;
 }
 
 #intro-content {
-    margin: 0 0 0 50px;
+    margin: 0 3in 0 0.5in;
+}
+
+
+
+#cred-cont {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+#cred-cont li {
+    margin-right: 0.5in;
 }
