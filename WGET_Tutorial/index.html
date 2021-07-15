@@ -19,11 +19,19 @@
                 <p>WGET is a simple command used on the terminal to collect 
                 files from the internet, mainly integrated within GNU/Linux operating systems. It works by 
                 making requests to the internet and pulls back requested items to be downloaded. This could be anything from a file,
-                 picture, or spreadsheet.  CURL works similarly to the WGET in pulling data off the 
-                 internet. However, cURL is powered by the libcurl library and allows for upload/file 
-                 transfers. WGET uses more common protocols such as HTTP, HTTPS, FTP and FTPS. While CURL allows for
+                 picture, or spreadsheet.  
+                 <p>cURL (Client URL) which comes preinstalled on MacOS and Windows 10 works similarly to WGET in that it also pulls data off the internet.However, cURL
+                    is powered by the libcurl library to allow for upload/file transfers. cURL
+                    provides a generic, language-agnostic way to demonstrate HTTP requests and
+                    responses. Since each programming language has a different way of making
+                    web calls. Rather than show how to make web calls in Java, Python, C++,
+                    JavaScript, Ruby, and so on, you can just show the call using curl. Users can
+                    see the format of the request, including any headers and other parameters.
+                    Your users can translate this into the specific format for the language they’re
+                    using. While curl was made to transfer just the URLs that the user specifies,
+                    and does not contain any r WGET uses more common protocols such as HTTP, HTTPS, FTP and FTPS. While CURL allows for
                   a much broader protocol coverage across the board. Another key difference is that due to the set focus of downloading for WGET, it comes with features to allow 
-                  for a much easier download experience, such as resuming incomplete files, persistent connections, and NLS-based language support. 
+		  for a much easier download experience, such as resuming incomplete files, persistent connections, and NLS-based language support. </p>
                 </p>
                 <h3>When would you use one or the other to download a CSV file?</h3>
                 <p>Both programs can be utilized in different ways depending on the use-case of the CSV file. For example if the CSV file was used to track a company’s shipping address locations, a single file could contain thousands upon thousands of entries. If this file was needed to be shared to a server URL, you would be using CURL to upload and download different iterations of the file. It would allow you to upload and store your backup and retrieve it from the console with a script for easier data entry. If the file was already uploaded to the cloud or there multiple CSV files needed to be downloaded, WGET would be able to accommodate better due to its resume and multidownload features. 
@@ -134,16 +142,24 @@
                 <img src="./images/windows/step_4_1.png" alt="step_4_1">
             </div>
             <div class="curl">
+                <h3>cUrl</h3>
+                <p>cUrl now comes standard with all new windows versions after 1803. You can run curl commands using the powershell</p>
+                <h3>Step 1: Open Powershell or CMD</h3>
+                <h3>Step 2: Run the commands</h3>
+                <img src="./images/windows/step_1_1.png" alt="step_1_1">
             </div>
         </div>
-        <div class="linux">
-            <h2>Linux</h2>
+        <h2>Linux</h2>
+        <div class="wget">
+            
             <h3>Unlike Windows, both wget and cURL are integrated in every linux system</h3>
             <code>$ curl -O https://testsite.com/bigdata.csv</code>
             <code>$ wget https://testsite.com/bigdata.csv</code>
         </div>
-        <div class="mac">
-            <h2>Mac OS</h2>
+        <h2>Mac OS</h2>
+        <div class="wget">
+            
+
         </div>
     </div>
     <div class="speed-test">
