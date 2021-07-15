@@ -44,7 +44,6 @@ td {
 
 
 
-
 .content {
     margin: 0.5in 0.5in 0.5in 0.5in;
 }
@@ -68,10 +67,13 @@ td {
     margin: 0 0in 0 0.5in;
 }
 
+.tables {
+    display: flex;
+}
+
 .footer {
     background-color: #181a1b;
     width: 100%;
-    display: flex;
 
 }
 

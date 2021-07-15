@@ -29,36 +29,68 @@
                 <p>Both programs can be utilized in different ways depending on the use-case of the CSV file. For example if the CSV file was used to track a company’s shipping address locations, a single file could contain thousands upon thousands of entries. If this file was needed to be shared to a server URL, you would be using CURL to upload and download different iterations of the file. It would allow you to upload and store your backup and retrieve it from the console with a script for easier data entry. If the file was already uploaded to the cloud or there multiple CSV files needed to be downloaded, WGET would be able to accommodate better due to its resume and multidownload features. 
                 </p>
                 <h3>Breakdown of the flag options</h3>
-                <table>
-                    <tr>
-                        <td><em>-i</em></td>
-                        <td>Includes the header info</td>
-                    </tr>
-                    <tr>
-                        <td><em>-O</em></td>
-                        <td> Downloads a file</td>
-                    </tr>
-                    <tr>
-                        <td><em>-qc</em></td>
-                        <td>Quit download with resuming if failed</td>
-                    </tr>
-                    <tr>
-                        <td><em>-qcO</em></td>
-                        <td>Same as <em>-qc</em> but with specified download location</td>
-                    </tr>
-                    <tr>
-                        <td><em>-U</em></td>
-                        <td>Download url using an agent provided</td>
-                    </tr>
-                    <tr>
-                        <td><em>-p</em>&#60;dir>&#60;dir></td>
-                        <td><em>Downloads file from url to directory</em></td>
-                    </tr>
-                    <tr>
-                        <td><em>-c</em></td>
-                        <td>Continue aborted downloads</td>
-                    </tr>
-                </table>
+                <div class="tables">
+                    <table>
+                        <tr>
+                            <td><em>-i</em></td>
+                            <td>Includes the header info</td>
+                        </tr>
+                        <tr>
+                            <td><em>-O</em></td>
+                            <td> Downloads a file</td>
+                        </tr>
+                        <tr>
+                            <td><em>-qc</em></td>
+                            <td>Quit download with resuming if failed</td>
+                        </tr>
+                        <tr>
+                            <td><em>-qcO</em></td>
+                            <td>Same as <em>-qc</em> but with specified download location</td>
+                        </tr>
+                        <tr>
+                            <td><em>-U</em></td>
+                            <td>Download url using an agent provided</td>
+                        </tr>
+                        <tr>
+                            <td><em>-p</em>&#60;dir>&#60;dir></td>
+                            <td><em>Downloads file from url to directory</em></td>
+                        </tr>
+                        <tr>
+                            <td><em>-c</em></td>
+                            <td>Continue aborted downloads</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td><em>-u</em></td>
+                            <td>Connect to server using username and password</td>
+                        </tr>
+                        <tr>
+                            <td><em>-i</em></td>
+                            <td>Include protocol response headers in the output</td>
+                        </tr>
+                        <tr>
+                            <td><em>-o</em></td>
+                            <td>Output to a file named as the remote file</td>
+                        </tr>
+                        <tr>
+                            <td><em>-O</em></td>
+                            <td>Output to a file named as the remote file</td>
+                        </tr>
+                        <tr>
+                            <td><em>-T</em></td>
+                            <td>Transfer local file to destination</td>
+                        </tr>
+                        <tr>
+                            <td><em>-x</em></td>
+                            <td>Get file from a speficied proxy</td>
+                        </tr>
+                        <tr>
+                            <td><em>-r 0-99</em></td>
+                            <td>Get the first 100 bytes</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
         </div>
@@ -91,11 +123,22 @@
             <code>curl -O "https://testsite.com/bigdata.csv</code>
         </div>
     </div>
+    <div class="speed-test">
+        <h2>Speed Test: wget vs. cURL</h2>
+
+    </div>
     <div class="footer">
+        <div class="references">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://eternallybored.org/misc/wget/">https://eternallybored.org/misc/wget/</a></li>
+                <li><a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/">https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/</a></li>
+            </ul>
+        </div>
         <div class="credit">
             <p>Credit</p>
             <ul id="cred-cont">
-                <li>Foiz</li>
+                <li>Foiz Ashik</li>
                 <li>Jon-Michael Cubano</li>
                 <li>Rachel Minkowitz</li>
                 <li>Vincent Sinatra</li>
