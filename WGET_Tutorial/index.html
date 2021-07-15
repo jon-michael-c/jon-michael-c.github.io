@@ -36,7 +36,7 @@
                 <h3>When would you use one or the other to download a CSV file?</h3>
                 <p>Both programs can be utilized in different ways depending on the use-case of the CSV file. For example if the CSV file was used to track a company’s shipping address locations, a single file could contain thousands upon thousands of entries. If this file was needed to be shared to a server URL, you would be using CURL to upload and download different iterations of the file. It would allow you to upload and store your backup and retrieve it from the console with a script for easier data entry. If the file was already uploaded to the cloud or there multiple CSV files needed to be downloaded, WGET would be able to accommodate better due to its resume and multidownload features. 
                 </p>
-                <h3>Breakdown of the flag options</h3>
+                <h3>Breakdown of the essential flag options</h3>
                 <div class="tables">
                     <table>
                         <th>Wget</th>
@@ -117,8 +117,34 @@
                         </tr>
                     </table>
                 </div>
+                <p>When you type an http address into a browser address bar, the server returns a
+                    response, and your browser converts the response to a more visual display. But
+                    you can also see the raw code by simply using the curl command in the
+                    command line:</p>
+                <code>curl https://example.com</code>
+                <p>Curl will retrieve the HTML code for the site example.com. The browser’s job is to
+                    make that code visually readable. curl shows you what you’re actually retrieving.</p>
+                <p>When you type an address into a website, you see only the body of the
+                    response. But actually, there’s more going on behind the scenes. When you
+                    make the request, you’re sending a request header that contains information
+                    about the request. The response also contains a response header.</p>    
+                <p>For example, to see the response header in a curl request, include -i in the curl request:
+                    curl <code>http://example.com -i</code></p>
+                <p>SIDE NOTE:<p>
+                    <p>REST APIs are basically request-and-response interactions between
+                    clients and servers made through a common HTTP web protocol. HTTP web
+                    protocols are language agnostic and therefore the same across different
+                    platforms and systems. When documenting a REST API, it doesn’t matter
+                    whether engineers build the API with Java, Ruby, Python, or some other
+                    language. The requests are made over HTTP, and the responses are returned
+                    through HTTP.
+                    Restapi_restapi.svg
+                    REST APIs can use any message format the API developers want to use,
+                    including XML, JSON, Atom, RSS, CSV, HTML, while Most REST APIs use
+                    JSON (JavaScript Object Notation) as the default message format. REST APIs
+                    focus on resources and ways to access the resources.</p>
             </div>
-
+            
         </div>
         <div class="windows">
             <h2>Windows Tutorial</h2>
@@ -158,8 +184,18 @@
         </div>
         <h2>Mac OS</h2>
         <div class="wget">
-            
-
+            <h3>Wget</h3>
+            <p>There are 2 ways to install wget: via Xcode or via Homebrew.</p>
+            <p>In this tutorial I will cover downloading WGET using Homebrew.</p>
+            <h3>Step 1: Install Homebrew on command line using a script</h3>
+            <code># /bin/bash -c "$(curl -fsSL
+                https://raw.githubusercontent.com/Homebrew/install/master/instal
+                l.sh)"</code>
+                <h3>Step 2: Install the wget command line client</h3>
+            <code># wget -X path/to/local.copy
+                http://example.com/url/to/download.html</code>
+            <h3>Step 3: Run the commands</h3>
+            <code># wget -O file.csv https://testsite.com/bigdata.csv</code>
         </div>
     </div>
     <div class="speed-test">
