@@ -43,7 +43,7 @@
                 <div class="tables">
                     <table>
                         <tr>
-                            <th>Wget</th>
+                            <th colspan="2">Wget</td>
                         </tr>
                         <tr>
                             <td><em>-i</em></td>
@@ -75,7 +75,9 @@
                         </tr>
                     </table>
                     <table>
-                        <th>cURL</th>
+                        <tr>
+                            <th colspan="2">cURL</th>
+                        </tr>
                         <tr>
                             <td><em>-u</em></td>
                             <td>Connect to server using username and password</td>
@@ -173,7 +175,7 @@
                 <p>Wget can also be added to PATH under windows environment variable which will allow you to run these commands from anywhere in the computer</p>
                 <code id="wc">wget -O file.csv https://examplesite.com/file.csv</code>
                 <p></p>
-                <img src="./images/windows/step_4_1.png" alt="step_4_1">
+                <img src="./images/windows/step_4_1.png" alt="step_4_1" style="width: 700px;">
             </div>
             <div class="curl">
                 <h3>Using cURL</h3>
@@ -181,10 +183,12 @@
                 <h3>Step 1: Open Powershell or CMD</h3>
                 <h3>Step 2: Run the commands</h3>
                 <code id="wc">curl.exe -o file.csv https://examplesite.com/file.csv</code>
+                <p></p>
                 <img src="./images/windows/step_1_1.png" alt="step_1_1">
             </div>
         </div>
-        <h2 class="mac_tut">Mac OS</h2>
+        <div class="macos">
+            <h2 class="mac_tut">Mac OS</h2>
         <div class="wget">
             <h3>Wget</h3>
             <p>There are 2 ways to install wget: via Xcode or via Homebrew.</p>
@@ -204,17 +208,22 @@
             <code id="mc">curl https://example.com -I</code>
             <img src="./images/mac/step_1_1.png" alt="" style="width: 700px;">
         </div>
-        <h2 class="lin_tut">Linux</h2>
+        </div>
+        <div class="linu">
+            <h2 class="lin_tut">Linux</h2>
         <div class="wget">
             <h3>Unlike Windows, both wget and cURL are integrated in every linux system</h3>
             <code id="lc">$ curl -O https://testsite.com/bigdata.csv</code>
             <code id="lc">$ wget https://testsite.com/bigdata.csv</code>
         </div>
+        </div>
+        
         
     </div>
     <div class="speed-test">
         <h2>Speed Test: wget vs. cURL</h2>
-        
+        <p>To test which program is faster in downloading, we gave each a large test file from <a href="https://www.thinkbroadband.com/download">https://www.thinkbroadband.com/download</a></p>
+        <img src="/home/admin/Pictures/speed_test.png" alt="speed_test">
     </div>
     <div class="references">
         <h2>References</h2>
