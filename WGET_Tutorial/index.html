@@ -184,12 +184,9 @@
             <p>There are 2 ways to install wget: via Xcode or via Homebrew.</p>
             <p>In this tutorial I will cover downloading WGET using Homebrew.</p>
             <h3>Step 1: Install Homebrew on command line using a script</h3>
-            <code id="mc"># /bin/bash -c "$(curl -fsSL
-                https://raw.githubusercontent.com/Homebrew/install/master/instal
-                l.sh)"</code>
-                <h3>Step 2: Install the wget command line client</h3>
-            <code id="mc"># wget -X path/to/local.copy
-                http://example.com/url/to/download.html</code>
+            <code id="mc"># /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"</code>
+            <h3>Step 2: Install the wget command line client</h3>
+            <code id="mc"># brew install wget</code>
             <h3>Step 3: Run the commands</h3>
             <code id="mc"># wget -O file.csv https://testsite.com/bigdata.csv</code>
         </div>
@@ -203,7 +200,6 @@
         </div>
         <h2>Linux</h2>
         <div class="wget">
-            
             <h3>Unlike Windows, both wget and cURL are integrated in every linux system</h3>
             <code id="lc">$ curl -O https://testsite.com/bigdata.csv</code>
             <code id="lc">$ wget https://testsite.com/bigdata.csv</code>
