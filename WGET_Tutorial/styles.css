@@ -44,16 +44,29 @@ img {
     margin: 20px 0 20px 0;
 }
 
-table, th, td {
-    border: 1px solid #3e4446;
+table {
+    margin: 0 5px 0 5px;
+    border-collapse: collapse;
 }
 
-td {
-    background-color: #34343c;
-    padding: 15px;
+th {
+    padding: 10px;
+    text-align: center;
 }
+
+th, td {
+    padding: 10px;
+}
+table, td {  
+    border: 1px solid rgb(77, 82, 102);
+    text-align: left;
+    background-color: #2c2c30;
+}
+
+
 
 .header {
+    font-family: 'Raleway', sans-serif;
     background: rgb(63,94,251);
     background: radial-gradient(circle, rgb(46, 69, 184) 0%, rgb(156, 44, 66) 100%);
     margin: 0;
