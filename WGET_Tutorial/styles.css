@@ -105,3 +105,15 @@ td {
 #cred-cont li {
     margin-right: 0.5in;
 }
+
+#mc {
+    background-color: rgba(255, 0, 55, 0.253);
+}
+
+#lc {
+    background-color: rgba(62, 107, 62, 0.452);
+}
+
+#wc {
+    background-color: rgba(65, 105, 225, 0.322);
+}

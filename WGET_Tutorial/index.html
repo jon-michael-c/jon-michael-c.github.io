@@ -165,6 +165,8 @@
                 <p>Now you can run any Wget commands to download file, I am using the -O flag for outpu</p>
                 <img src="./images/windows/step_4.png" alt="step_4">
                 <p>Wget can also be added to PATH under windows environment variable which will allow you to run these commands from anywhere in the computer</p>
+                <code id="wc">wget -O file.csv https://examplesite.com/file.csv</code>
+                <p></p>
                 <img src="./images/windows/step_4_1.png" alt="step_4_1">
             </div>
             <div class="curl">
@@ -172,15 +174,9 @@
                 <p>cUrl now comes standard with all new windows versions after 1803. You can run curl commands using the powershell</p>
                 <h3>Step 1: Open Powershell or CMD</h3>
                 <h3>Step 2: Run the commands</h3>
+                <code id="wc">curl.exe -o file.csv https://examplesite.com/file.csv</code>
                 <img src="./images/windows/step_1_1.png" alt="step_1_1">
             </div>
-        </div>
-        <h2>Linux</h2>
-        <div class="wget">
-            
-            <h3>Unlike Windows, both wget and cURL are integrated in every linux system</h3>
-            <code>$ curl -O https://testsite.com/bigdata.csv</code>
-            <code>$ wget https://testsite.com/bigdata.csv</code>
         </div>
         <h2>Mac OS</h2>
         <div class="wget">
@@ -188,15 +184,23 @@
             <p>There are 2 ways to install wget: via Xcode or via Homebrew.</p>
             <p>In this tutorial I will cover downloading WGET using Homebrew.</p>
             <h3>Step 1: Install Homebrew on command line using a script</h3>
-            <code># /bin/bash -c "$(curl -fsSL
+            <code id="mc"># /bin/bash -c "$(curl -fsSL
                 https://raw.githubusercontent.com/Homebrew/install/master/instal
                 l.sh)"</code>
                 <h3>Step 2: Install the wget command line client</h3>
-            <code># wget -X path/to/local.copy
+            <code id="mc"># wget -X path/to/local.copy
                 http://example.com/url/to/download.html</code>
             <h3>Step 3: Run the commands</h3>
-            <code># wget -O file.csv https://testsite.com/bigdata.csv</code>
+            <code id="mc"># wget -O file.csv https://testsite.com/bigdata.csv</code>
         </div>
+        <h2>Linux</h2>
+        <div class="wget">
+            
+            <h3>Unlike Windows, both wget and cURL are integrated in every linux system</h3>
+            <code id="lc">$ curl -O https://testsite.com/bigdata.csv</code>
+            <code id="lc">$ wget https://testsite.com/bigdata.csv</code>
+        </div>
+        
     </div>
     <div class="speed-test">
         <h2>Speed Test: wget vs. cURL</h2>
@@ -207,6 +211,10 @@
         <ul>
             <li><a href="https://eternallybored.org/misc/wget/">https://eternallybored.org/misc/wget/</a></li>
             <li><a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/">https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/</a></li>
+            <li><a href="https://www.youtube.com/watch?v=WxUVU0b95Oc"></a></li>
+            <li><a href="https://www.maketecheasier.com/install-wget-mac/">https://www.maketecheasier.com/install-wget-mac/</a></li>
+            <li><a href="https://idratherbewriting.com/learnapidoc/docapis_install_curl.html">https://idratherbewriting.com/learnapidoc/docapis_install_curl.html</a></li>
+            <li><a href="https://daniel.haxx.se/docs/curl-vs-wget.html">https://daniel.haxx.se/docs/curl-vs-wget.html</a></li>
         </ul>
     </div>
     <div class="footer">
