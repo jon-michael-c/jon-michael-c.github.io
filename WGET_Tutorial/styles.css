@@ -19,6 +19,14 @@ h2 {
     margin: 20px 10px 20px 10px;
 }
 
+h3 {
+    margin: 0.1in 0 0.1in 0;
+}
+
+p {
+    margin: 0.1in 0 0.1in 0;
+}
+
 code {
     background-color: #313537;
     padding: 10px;
@@ -67,12 +75,14 @@ td {
     margin: 0 0in 0 0.5in;
 }
 
+
+
 .tables {
     display: flex;
 }
 
 .footer {
-    background-color: #181a1b;
+    background-color: #050505;
     width: 100%;
 
 }

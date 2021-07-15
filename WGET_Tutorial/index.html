@@ -31,6 +31,7 @@
                 <h3>Breakdown of the flag options</h3>
                 <div class="tables">
                     <table>
+                        <th>Wget</th>
                         <tr>
                             <td><em>-i</em></td>
                             <td>Includes the header info</td>
@@ -61,6 +62,7 @@
                         </tr>
                     </table>
                     <table>
+                        <th>cURL</th>
                         <tr>
                             <td><em>-u</em></td>
                             <td>Connect to server using username and password</td>
@@ -136,21 +138,27 @@
         </div>
         <div class="linux">
             <h2>Linux</h2>
-            <code>curl -O "https://testsite.com/bigdata.csv</code>
+            <h3>Unlike Windows, both wget and cURL are integrated in every linux system</h3>
+            <code>$ curl -O https://testsite.com/bigdata.csv</code>
+            <code>$ wget https://testsite.com/bigdata.csv</code>
+        </div>
+        <div class="mac">
+            <h2>Mac OS</h2>
         </div>
     </div>
     <div class="speed-test">
         <h2>Speed Test: wget vs. cURL</h2>
 
     </div>
+    <div class="references">
+        <h2>References</h2>
+        <ul>
+            <li><a href="https://eternallybored.org/misc/wget/">https://eternallybored.org/misc/wget/</a></li>
+            <li><a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/">https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/</a></li>
+        </ul>
+    </div>
     <div class="footer">
-        <div class="references">
-            <h2>References</h2>
-            <ul>
-                <li><a href="https://eternallybored.org/misc/wget/">https://eternallybored.org/misc/wget/</a></li>
-                <li><a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/">https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/</a></li>
-            </ul>
-        </div>
+       
         <div class="credit">
             <p>Credit</p>
             <ul id="cred-cont">
