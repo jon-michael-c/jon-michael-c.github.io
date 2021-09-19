@@ -1,0 +1,19 @@
+@media only screen and (max-width: 720px) {
+    .nav li {
+        margin: 5px;
+    }
+
+    body {
+      margin: 0.05in;
+      font-size: 12px;
+    }
+
+    .works-grid {
+        display: block;
+        margin: 0.2in 0.1in 0.2in 0.1in;
+    }
+
+    .work {
+        padding: 100px;
+    }
+}

@@ -1,0 +1,45 @@
+.works-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+}
+
+.work {
+    margin: 5px;
+    padding: 200px;
+    transition: 0.5s;
+    background-image: url('./work_1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.works h1 {
+    text-decoration: underline;
+    text-decoration-color: rgb(67, 117, 190) ;
+    text-decoration-thickness: 7px;
+
+}
+
+.work:hover {
+    transform: scale(1.1);
+    border: 1px solid rgb(118, 127, 255);
+    z-index: 1;
+}
+
+
+.work-img {
+    width: 100%;
+}
+
+.work-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.work-desc:hover {
+    display: flex;
+}

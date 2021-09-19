@@ -1,0 +1,22 @@
+@import "./_variables";
+@import "./_nav";
+@import "./_work";
+@import "./_media";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+     background-color: $background-color;
+     color: $text-color;
+     font-family: 'Prompt', sans-serif;
+     margin: 0 .3in 0 .3in;
+     overflow-x: hidden;
+}
+
+div {
+    margin: 20px 0 20px 0;
+}
