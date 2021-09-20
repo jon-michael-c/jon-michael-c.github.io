@@ -6,20 +6,40 @@
 
 .work {
     margin: 5px;
-    padding: 200px;
+    padding: 100px;
     transition: 0.5s;
-    background-image: url('./work_1.jpg');
+    background-image: url('../images/work_1.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    filter: brightness(0.7);
+    h1 {
+        transition: 0.5s;
+        text-decoration: underline;
+        text-decoration-color: rgb(67, 117, 190) ;
+        text-decoration-thickness: 7px;
+        opacity: 0;
+    }
+
+    button {
+        transition: 0.5s;
+        opacity: 0;
+    }
+
+
+
+    &:hover {
+        filter: brightness(1);
+
+        h1, button {
+            opacity: 100;  
+        }
+    }
+
+    
 }
 
-.works h1 {
-    text-decoration: underline;
-    text-decoration-color: rgb(67, 117, 190) ;
-    text-decoration-thickness: 7px;
 
-}
 
 .work:hover {
     transform: scale(1.1);
@@ -43,3 +63,4 @@
 .work-desc:hover {
     display: flex;
 }
+

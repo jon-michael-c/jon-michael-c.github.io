@@ -1,5 +1,6 @@
 @import "./_variables";
 @import "./_nav";
+@import "./_hero";
 @import "./_work";
 @import "./_media";
 
@@ -13,7 +14,7 @@ body {
      background-color: $background-color;
      color: $text-color;
      font-family: 'Prompt', sans-serif;
-     margin: 0 .3in 0 .3in;
+     margin: 0 .5in 0 .5in;
      overflow-x: hidden;
 }
 

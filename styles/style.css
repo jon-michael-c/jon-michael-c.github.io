@@ -10,6 +10,28 @@
   list-style: none;
 }
 
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-image: url("../images/circle-scatter-haikei.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.hero .profile-pic {
+  margin: 5px 15px 5px 0;
+  padding: 150px;
+  width: 100px;
+  height: 100px;
+  border: 6px solid #8161DC;
+  border-radius: 50%;
+  background-image: url("../images/ZF_headshot.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .works-grid {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -18,19 +40,31 @@
 
 .work {
   margin: 5px;
-  padding: 200px;
+  padding: 100px;
   transition: 0.5s;
-  background-image: url("./work_1.jpg");
+  background-image: url("../images/work_1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  filter: brightness(0.7);
 }
-
-.works h1 {
+.work h1 {
+  transition: 0.5s;
   text-decoration: underline;
   -webkit-text-decoration-color: #4375be;
           text-decoration-color: #4375be;
   text-decoration-thickness: 7px;
+  opacity: 0;
+}
+.work button {
+  transition: 0.5s;
+  opacity: 0;
+}
+.work:hover {
+  filter: brightness(1);
+}
+.work:hover h1, .work:hover button {
+  opacity: 100;
 }
 
 .work:hover {
@@ -57,16 +91,17 @@
 @media only screen and (max-width: 720px) {
   .nav li {
     margin: 5px;
+    padding: 10px;
   }
 
   body {
-    margin: 0.05in;
+    margin: 0;
     font-size: 12px;
   }
 
   .works-grid {
     display: block;
-    margin: 0.2in 0.1in 0.2in 0.1in;
+    margin: 0;
   }
 
   .work {
@@ -83,7 +118,7 @@ body {
   background-color: #202731;
   color: #ffffff;
   font-family: "Prompt", sans-serif;
-  margin: 0 0.3in 0 0.3in;
+  margin: 0 0.5in 0 0.5in;
   overflow-x: hidden;
 }
 
