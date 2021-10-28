@@ -1,46 +1,79 @@
 .nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
   padding: 5px 15px 5px 15px;
 }
-
 .nav li {
   padding: 10px;
   margin: 5px;
   list-style: none;
 }
 
+.about-me-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.about-me-grid .desc {
+  padding: 0 7rem 0 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.about-me-grid .skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.about-me-grid .skill-box {
+  padding: 5px;
+  margin: 10px;
+}
+.about-me-grid #html {
+  background-color: #e6510081;
+  border-radius: 20px;
+}
+.about-me-grid #css {
+  background-color: #0278bd7c;
+  border-radius: 20px;
+}
+.about-me-grid #js {
+  background-color: #ffd50080;
+  border-radius: 20px;
+}
+.about-me-grid #react {
+  background-color: #80deea80;
+  border-radius: 20px;
+}
+.about-me-grid #node {
+  background-color: #579e4a7e;
+  border-radius: 20px;
+}
+.about-me-grid #php {
+  background-color: #8993be7c;
+  border-radius: 20px;
+}
+.about-me-grid #ph {
+  background-color: #03A9F4;
+  border-radius: 20px;
+}
+.about-me-grid #ai {
+  background-color: #FF5722;
+  border-radius: 20px;
+}
+.about-me-grid #fig {
+  background-color: #7C4DFF;
+  border-radius: 20px;
+}
+
 .hero {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-<<<<<<< HEAD
   flex-direction: row;
   justify-content: flex-start;
   height: 40vh;
-=======
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
->>>>>>> 7b700c1d6dafb9eb6e78692f30e8dbd3e805569b
   background-image: url("../images/circle-scatter-haikei.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-
 .hero .profile-pic {
   margin: 5px 15px 5px 0;
   padding: 150px;
@@ -55,28 +88,22 @@
 }
 
 .works-grid {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto;
   text-align: center;
 }
 
 .work {
   margin: 5px;
   padding: 100px;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   background-image: url("../images/work_1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  -webkit-filter: brightness(0.7);
-          filter: brightness(0.7);
+  filter: brightness(0.7);
 }
-
 .work h1 {
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   text-decoration: underline;
   -webkit-text-decoration-color: #4375be;
@@ -84,25 +111,19 @@
   text-decoration-thickness: 7px;
   opacity: 0;
 }
-
 .work button {
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   opacity: 0;
 }
-
 .work:hover {
-  -webkit-filter: brightness(1);
-          filter: brightness(1);
+  filter: brightness(1);
 }
-
 .work:hover h1, .work:hover button {
   opacity: 100;
 }
 
 .work:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
   border: 1px solid #767fff;
   z-index: 1;
 }
@@ -112,24 +133,13 @@
 }
 
 .work-desc {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .work-desc:hover {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -138,22 +148,23 @@
     margin: 5px;
     padding: 10px;
   }
+
   body {
     margin: 0;
     font-size: 12px;
   }
+
   .works-grid {
     display: block;
     margin: 0;
   }
+
   .work {
     padding: 100px;
   }
 }
-
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -161,12 +172,11 @@
 body {
   background-color: #202731;
   color: #ffffff;
-  font-family: 'Prompt', sans-serif;
-  margin: 0 .5in 0 .5in;
+  font-family: "Prompt", sans-serif;
+  margin: 0 0.5in 0 0.5in;
   overflow-x: hidden;
 }
 
 div {
   margin: 20px 0 20px 0;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
