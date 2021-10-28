@@ -1,3 +1,66 @@
-.nav {
-    background-color: orange;
+@import "./_variables";
+
+.about-me-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .desc {
+        padding: 0 7rem 0 0;
+        font-size: 1.30rem;
+        font-weight: 700;
+    }
+
+    .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skill-box {
+        .img {
+            
+        }
+        padding: 5px;
+        margin: 10px;
+    }
+    
+    @mixin skills($color) {
+        background-color: $color;
+        border-radius: 20px;
+    }
+
+    #html {
+        @include skills($html)
+    }
+
+    #css {
+        @include skills($css)
+    }
+
+    #js {
+        @include skills($js)
+    }
+
+    #react {
+        @include skills($react)
+    }
+
+    #node {
+        @include skills($node)
+    }
+
+    #php {
+        @include skills($php)
+    }
+
+    #ph {
+        @include skills($ph)
+    }
+
+    #ai {
+        @include skills($ai)
+    }
+
+    #fig {
+        @include skills($fig)
+    }
 }
