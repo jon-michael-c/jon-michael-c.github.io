@@ -24,8 +24,14 @@
   grid-template-columns: repeat(3, 1fr);
 }
 .about-me-grid .skill-box {
+  display: flex;
+  justify-content: center;
   padding: 5px;
   margin: 10px;
+}
+.about-me-grid .skill-box .img {
+  width: 100%;
+  padding: 100%;
 }
 .about-me-grid #html {
   background-color: #e6510081;
@@ -40,11 +46,11 @@
   border-radius: 20px;
 }
 .about-me-grid #react {
-  background-color: #80deea80;
+  background-color: #ea584270;
   border-radius: 20px;
 }
 .about-me-grid #node {
-  background-color: #579e4a7e;
+  background-color: #0d5001;
   border-radius: 20px;
 }
 .about-me-grid #php {
@@ -52,25 +58,26 @@
   border-radius: 20px;
 }
 .about-me-grid #ph {
-  background-color: #03A9F4;
+  background-color: #03a8f498;
   border-radius: 20px;
 }
 .about-me-grid #ai {
-  background-color: #FF5722;
+  background-color: #ff56229d;
   border-radius: 20px;
 }
 .about-me-grid #fig {
-  background-color: #7C4DFF;
+  background-color: #7c4dff86;
   border-radius: 20px;
 }
 
 .hero {
   display: flex;
   flex-direction: row;
-  justify-content: flex-center;
+  justify-content: space-evenly;
   height: 40vh;
+  width: 100%;
   background-image: url("../images/hero.svg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   background-size: 70%;
   background-position-x: 50px;
@@ -90,7 +97,7 @@
 .hero .heading {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 .hero .heading #hello {
   text-align: center;
@@ -118,8 +125,8 @@
 .work {
   margin: 5px;
   padding: 100px;
+  background-image: url("./../images/sincerely-events-preview.png");
   transition: 0.5s;
-  background-image: url("../images/work_1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -131,6 +138,8 @@
   -webkit-text-decoration-color: #4375be;
           text-decoration-color: #4375be;
   text-decoration-thickness: 7px;
+  padding: 10px;
+  text-decoration: none;
   opacity: 0;
 }
 .work button {
@@ -160,6 +169,7 @@
 }
 
 .work-img {
+  height: 100%;
   width: 100%;
 }
 
@@ -172,6 +182,10 @@
 
 .work-desc:hover {
   display: flex;
+}
+
+#se {
+  background-image: url("./../images/sincerely-events-preview.png");
 }
 
 @media only screen and (max-width: 720px) {
@@ -204,7 +218,6 @@ body {
   background-color: #202731;
   color: #ffffff;
   font-family: "Prompt", sans-serif;
-  margin: 0 0.5in 0 0.5in;
   overflow-x: hidden;
 }
 
