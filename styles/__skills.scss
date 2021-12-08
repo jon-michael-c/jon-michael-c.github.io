@@ -1,9 +1,8 @@
 @import "./_variables";
 
 .about-me-grid {
-    display: grid;
+    display:grid;
     grid-template-columns: 1fr 1fr;
-
     .desc {
         padding: 0 7rem 0 0;
         font-size: 1.30rem;
@@ -16,8 +15,11 @@
     }
 
     .skill-box {
+        display: flex;
+        justify-content: center;
         .img {
-            
+         width: 100%;
+         padding: 100%;   
         }
         padding: 5px;
         margin: 10px;
