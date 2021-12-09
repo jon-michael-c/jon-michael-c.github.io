@@ -84,6 +84,7 @@
   background-position: center;
   background-size: 70%;
   background-position-x: 50px;
+  margin-top: 0px;
 }
 
 .hero {
@@ -140,7 +141,6 @@
 .work {
   margin: 5px;
   padding: 100px;
-  background-image: url("./../images/sincerely-events-preview.png");
   transition: 0.5s;
   background-repeat: no-repeat;
   background-position: center;
@@ -201,6 +201,14 @@
 
 #se {
   background-image: url("./../images/sincerely-events-preview.png");
+}
+
+#pm {
+  background-image: url(./../images/pacman-preview.png);
+}
+
+#bb {
+  background-image: url("./../images/boredbot-preview.png");
 }
 
 @media only screen and (max-width: 720px) {
