@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <title>Jon-Michael</title>
   </head>
-  <body>
+<body data-aos="fade-down"  data-aos-duration="2000">
    
     <div class="hero-container">
  <div class="nav">
@@ -30,28 +31,28 @@
     </div>
 
     </div>
-        <div class="about-me">
+    <div class="about-me" data-aos="fade-down">
       <h1>ABOUT ME</h1>
       <div class="about-me-grid">
         <div class="desc">
           <p>Self-motivated and career-conscious Computer Science student, with troubleshooting skills and knowledge of concepts in computer programming. Effective troubleshooting and organizational skills. Focused on pursuing career opportunities in the field of web development and internet technologies.</p>
         </div>
         <div class="skills">
-          <div class="skill-grid">
-            <div class="skill-box" id="html"><img src="./images/skills/icons8-html-5.svg" alt="html-icon"></div>
-            <div class="skill-box" id="css"><img src="./images/skills/icons8-css3.svg" alt="css-icon"></div>
-            <div class="skill-box" id="js"><img src="./images/skills/icons8-javascript.svg" alt="javascript-icon"></div>
-            <div class="skill-box" id="node"><img src="./images/skills/node.svg" alt=""></div>
-            <div class="skill-box" id="php"><img src="./images/skills/php.svg" alt=""></div>
-            <div class="skill-box" id="react"><img src="./images/skills/icons8-git(1).svg" alt="react-icon"></div>
-            <div class="skill-box" id="ph"><img src="./images/skills/ph.svg" alt=""></div>
-            <div class="skill-box" id="ai"><img src="./images/skills/ai.svg" alt=""></div>
-            <div class="skill-box" id="fig"><img src="./images/skills/fig.svg" alt=""></div>
+          <div class="skill-grid" data-aos="flip-up" data-aos-duration="1500">
+            <div class="skill-box" id="html"><img src="./images/skills/icons8-html-5.svg" alt="html-icon" data-aos="flip-left" data-aos-duration="2000"></div>
+            <div class="skill-box" id="css"><img src="./images/skills/icons8-css3.svg" alt="css-icon" data-aos="flip-left" data-aos-duration="2000"></div>
+            <div class="skill-box" id="js"><img src="./images/skills/icons8-javascript.svg" alt="javascript-icon" data-aos="flip-left" data-aos-duration="2000"></div>
+            <div class="skill-box" id="node"><img src="./images/skills/node.svg" alt="" data-aos="flip-left" data-aos-duration="2000"></div>
+            <div class="skill-box" id="php"><img src="./images/skills/php.svg" alt="" data-aos="flip-left" data-aos-duration="2000"></div>
+            <div class="skill-box" id="react"><img src="./images/skills/icons8-git(1).svg" alt="react-icon" data-aos="flip-left" data-aos-duration="2000"></div>
+            <div class="skill-box" id="ph"><img src="./images/skills/ph.svg" alt="" data-aos="flip-left" data-aos-duration="2000"></div>
+            <div class="skill-box" id="ai"><img src="./images/skills/ai.svg" alt="" data-aos="flip-left" data-aos-duration="2000"></div>
+            <div class="skill-box" id="fig"><img src="./images/skills/fig.svg" alt="" data-aos="flip-left" data-aos-duration="2000"></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="works">
+    <div class="works" data-aos="fade-up">
       <h1 id="work-header">My Works</h1>
       <div class="works-grid">
         <div class="work" id="se">
@@ -76,5 +77,10 @@
     <footer>
       
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
