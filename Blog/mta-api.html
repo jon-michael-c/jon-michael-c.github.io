@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article>
+      <h1 id="using-mta-realtime-api-to-display-an-alert-feed">
+        Using MTA Realtime API to Display an Alert Feed
+      </h1>
+      <p>
+        The MTA provides free API services for anyone to figure why their train
+        is delayed. They have tons of data easily accessable.
+      </p>
+      <p>
+        In this project, I will creating a feed showing the lastest service
+        alerts for the NY subway system.
+      </p>
+      <h2 id="getting-the-data">Getting the Data</h2>
+      <p>
+        First, we must request data using fetch. The data being retrieve is from
+        <a href="file:///C:/Users/Deionna/AppData/Local/Temp/mta.html#">here</a>
+      </p>
+      <pre><code class="lang-js"><span class="hljs-keyword">const</span> url = <span class="hljs-string">"https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts.json"</span>
+<span class="hljs-keyword">const</span> KEY = <span class="hljs-string">"y0502zWxdl9dgYO1NVYAQ17J3oKghY5q3SibNxp1"</span>
+
+fetch(url, {
+        <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+        <span class="hljs-attr">headers</span>: myHeaders
+    })
+.then((<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.json()))
+.then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(data)
+})
+</code></pre>
+      <p>
+        This gives back the data is a json format as seen here. The API brings
+        back an array of objects with five items:
+      </p>
+      <ul>
+        <li><p>active_period</p></li>
+        <li><p>desciption_text</p></li>
+        <li><p>header_text</p></li>
+        <li><p>informed_text</p></li>
+        <li><p>transit_realtime.mercury_alert</p></li>
+      </ul>
+      <p>Example:</p>
+      <p>
+        <img
+          src="https://user-images.githubusercontent.com/53241212/151103199-43c008e4-7993-4216-92c6-1fc6f85def35.jpg"
+          alt="example-response"
+        />
+      </p>
+      <p>
+        Now that we have the data, must display it. In this case, the service
+        alerts will listed on a card showing the header text and the
+        description, as well as the time uploaded to the system.
+      </p>
+      <p>
+        To do this, a functions needs to created that will render html
+        associated with the data. This render functions will then be executed
+        after the fetch request is completed.
+      </p>
+      <pre><code class="lang-js">const renderData = <span class="hljs-function"><span class="hljs-params">(data)</span> =&gt;</span> {
+    let html = <span class="hljs-string">""</span>
+
+    html += `<span class="javascript">
+
+        &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"card"</span>&gt;
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card-head"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"time"</span>&gt;</span>${updated}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span>&gt;</span>${header_text}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+            &lt;p <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"desc"</span>&gt;${desc_text} &lt;<span class="hljs-regexp">/h1&gt; 
+        &lt;/</span>div&gt; 
+
+        </span>`
+    }
+
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"content"</span>).innerHTML = html
+</code></pre>
+      <h2 id="putting-the-subway-icons-on-the-results">
+        Putting the Subway Icons on the Results
+      </h2>
+      <p>
+        In order to display the result with the corresponding subway icons, the
+        text must be parsed before it renders to the page. In the javascript,
+        that is taken care by using regex and replacing the selected text into
+        an image of the appropriate icon.
+      </p>
+      <pre><code class="lang-js"><span class="hljs-keyword">const</span> filteredText = <span class="hljs-function">(<span class="hljs-params">text</span>) =&gt;</span> {  
+    <span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/\[(.*?)\]/gm</span>
+    <span class="hljs-keyword">let</span> arr = text.match(reg)
+    <span class="hljs-keyword">let</span> arr = reg.exec(text)
+    <span class="hljs-keyword">let</span> newText= text
+
+    <span class="hljs-keyword">if</span> (arr2 != <span class="hljs-literal">null</span>) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> letter <span class="hljs-keyword">of</span> arr) {
+            <span class="hljs-keyword">let</span> train = letter.charAt(<span class="hljs-number">1</span>).toLowerCase()
+            newText = newText.replace(letter, <span class="hljs-string">`&lt;img src="./icons/<span class="hljs-subst">${train}</span>.svg" id="icon"/&gt;`</span>)
+        }
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> text
+    } 
+
+    <span class="hljs-keyword">return</span> newText
+}
+</code></pre>
+    </article>
+  </body>
+</html>

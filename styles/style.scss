@@ -6,29 +6,30 @@
 @import "./components/_media";
 @import "./components/_footer";
 @import "./components/_animation";
+@import "./components/_blog";
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-color: $background-color;
-  color: $text-color;
-  font-family: "Prompt", sans-serif;
-  font-weight: 400;
-  overflow-x: hidden;
-  margin: 0px;
-  padding: 0 10rem 0 10rem;
+    background-color: $background-color;
+    color: $text-color;
+    font-family: "Prompt", sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0 10rem 0 10rem;
 }
 
 @media (max-width: 1000px) {
-  body {
-    padding: 0 1rem 0 1rem;
-  }
+    body {
+        padding: 0 1rem 0 1rem;
+    }
 }
 
 div {
-  margin: 20px 0 20px 0;
+    margin: 20px 0 20px 0;
 }
