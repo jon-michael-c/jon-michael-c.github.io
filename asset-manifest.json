@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/jon-michael-c/static/css/main.073c9b0a.css",
+    "main.js": "/jon-michael-c/static/js/main.9cca658e.js",
+    "static/js/787.b601e7e3.chunk.js": "/jon-michael-c/static/js/787.b601e7e3.chunk.js",
+    "static/media/logo.svg": "/jon-michael-c/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/jon-michael-c/index.html",
+    "main.073c9b0a.css.map": "/jon-michael-c/static/css/main.073c9b0a.css.map",
+    "main.9cca658e.js.map": "/jon-michael-c/static/js/main.9cca658e.js.map",
+    "787.b601e7e3.chunk.js.map": "/jon-michael-c/static/js/787.b601e7e3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.9cca658e.js"
+  ]
+}
