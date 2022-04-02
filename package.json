@@ -2,7 +2,7 @@
   "name": "jon-michael-c.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jon-michael-c.github.io/jon-michael-c",
+  "homepage": "https://jon-michael-c.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
