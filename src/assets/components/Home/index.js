@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import './index.scss'
 import { useEffect, useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters'
+import Logo from '../Logo'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -56,6 +57,7 @@ const Home = () => {
           CONTACT ME
         </Link>
       </div>
+      <Logo />
     </div>
   )
 }
