@@ -1,15 +1,16 @@
-import "./index.scss";
-import { Link, NavLink } from "react-router-dom";
-import LogoS from "../../images/logo-s.png";
-import LogoSubtitle from "../../images/logo_sub.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faHome, faUser } from "@fortawesome/free-solid-svg-icons";
+import './index.scss'
+import { Link, NavLink } from 'react-router-dom'
+import LogoS from '../../images/logo-s.png'
+import LogoJ from '../../images/LogoJ.png'
+import LogoSubtitle from '../../images/logoj_sub.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Sidebar = () => (
   <div className="nav-bar">
     <Link className="logo" to="/">
-      <img src={LogoS} />
+      <img src={LogoJ} />
       <img className="sub-logo" src={LogoSubtitle} alt="slobodan" />
     </Link>
     <nav>
@@ -54,6 +55,6 @@ const Sidebar = () => (
       </li>
     </ul>
   </div>
-);
+)
 
-export default Sidebar;
+export default Sidebar
