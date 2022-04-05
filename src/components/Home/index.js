@@ -1,4 +1,4 @@
-import LogoTitle from '../../images/LogoJ.png'
+import LogoTitle from '../../assets/images/LogoJ.png'
 import { Link, NavLink } from 'react-router-dom'
 import './index.scss'
 import { useEffect, useState } from 'react'
@@ -25,7 +25,7 @@ const Home = () => {
   ]
 
   useEffect(() => {
-    return setTimeout(() => {
+    setTimeout(() => {
       setLetterClass('text-animate-hover')
     }, 4000)
   }, [])
