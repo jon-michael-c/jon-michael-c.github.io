@@ -79,3 +79,10 @@
     transform: rotateX(90deg);
   }
 }
+.part-back {
+  float: right;
+  width: 50%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+}
