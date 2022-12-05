@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/</loc>
+    <lastmod>2022-12-05T16:31:55-05:00</lastmod>
+  </url><url>
+    <loc>/posts/kvm-passthrough/</loc>
+    <lastmod>2022-12-05T16:31:55-05:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-12-05T16:31:55-05:00</lastmod>
+  </url><url>
+    <loc>/tags/api/</loc>
+    <lastmod>2022-12-01T14:17:07-05:00</lastmod>
+  </url><url>
+    <loc>/tags/javascript/</loc>
+    <lastmod>2022-12-01T14:17:07-05:00</lastmod>
+  </url><url>
+    <loc>/posts/mta-data-feeds/</loc>
+    <lastmod>2022-12-01T14:17:07-05:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-12-01T14:17:07-05:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+  </url>
+</urlset>

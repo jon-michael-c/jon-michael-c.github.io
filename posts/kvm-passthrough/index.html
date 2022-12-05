@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>GPU Passthrough KVM Setup (Arch Linux) | Blog</title>
+
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+
+	</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-nav">
+    <a class="logo" href="/">
+      <img alt="logo" src="/pics/logo.png" class="logo-img" />
+    </a>
+    <h3>
+      Blog
+    </h3>
+    <ul class="main-menu">
+      
+    </ul>
+    <ul>
+      <li>
+        <i class="fa-brands fa-linkedin"></i> 
+      </li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<main class="content">
+
+
+<h4><a href="/">Back to Posts</a></h4>
+
+<h1>GPU Passthrough KVM Setup (Arch Linux)</h1>
+
+<ul class="tags">
+    
+</ul>
+
+
+<p>Reference: <a href="">PCI passthrough via OVMF</a></p>
+<p>Needed Downloads: <a href="">Windows 10 ISO</a> <a href="">Virto Window Drivers</a></p>
+<h2 id="enable-immou-in-grub">Enable IMMOU in Grub</h2>
+<p>Go to Grub file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/default/grub 
+</span></span></code></pre></div><p>Add IOMMU into grub</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">amd_iommu</span><span style="color:#ff79c6">=</span>on or <span style="color:#8be9fd;font-style:italic">intel_iommu</span><span style="color:#ff79c6">=</span>on 
+</span></span></code></pre></div><p>Rebuild Grub</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></div><p>REBOOT</p>
+<p>Check if IOMMU is enabled</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dmesg | grep -i -e DMAR -e IOMMU
+</span></span></code></pre></div><h2 id="setup-vfio-on-gpu">Setup VFIO On GPU</h2>
+<p>Get PCI IDs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span><span style="color:#8be9fd;font-style:italic">shopt</span> -s nullglob
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> g in <span style="color:#f1fa8c">`</span>find /sys/kernel/iommu_groups/* -maxdepth <span style="color:#bd93f9">0</span> -type d | sort -V<span style="color:#f1fa8c">`</span>; <span style="color:#ff79c6">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#34;IOMMU Group </span><span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">g</span>##*/<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">:&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> d in <span style="color:#8be9fd;font-style:italic">$g</span>/devices/*; <span style="color:#ff79c6">do</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">echo</span> -e <span style="color:#f1fa8c">&#34;\t</span><span style="color:#ff79c6">$(</span>lspci -nns <span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">d</span>##*/<span style="color:#f1fa8c">}</span><span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">done</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">done</span>;
+</span></span></code></pre></div><p>Make VFIO Configuration File</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/modprobe.d/vfio.conf
+</span></span></code></pre></div><p>Add PCI IDs to File</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>options vfio-pci <span style="color:#8be9fd;font-style:italic">ids</span><span style="color:#ff79c6">=</span>XXXX:XXXX,XXXX:XXXX
+</span></span></code></pre></div><p>Edit Mkinitpcio Configuration File</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/mkinitcpio.conf
+</span></span></code></pre></div><p>Add VFIO to Modules</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vfio_pci vfio vfio_iommu_type1 vfio_virqfd
+</span></span></code></pre></div><p>Make sure modconf is in hooks</p>
+<p>Rebuild Initrams</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkinitcpio -p linux510
+</span></span></code></pre></div><p>REBOOT</p>
+<p>Check VFIO on GPU</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dmesg | grep -i vfio
+</span></span></code></pre></div><h2 id="install-virt-manager">Install Virt-Manager</h2>
+<p>Update PACMAN</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -Syu
+</span></span></code></pre></div><p>Install Required Packages</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S qemu libvirt ovmf virt-manager
+</span></span></code></pre></div><p>Enable/Start libvirtd Service</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl <span style="color:#8be9fd;font-style:italic">enable</span> libvirtd.service
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start livirtd.service
+</span></span></code></pre></div><p>Enable/Start virtlogd Socket</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl <span style="color:#8be9fd;font-style:italic">enable</span> virtlogd.socket
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start virtlogd.socket
+</span></span></code></pre></div><p>Setup Network and Workaround</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S ebtables iptables dnsmasq
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo sudo systemctl restart libvirtd
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo virsh net-autostart default
+</span></span></code></pre></div><h1 id="configuring-evdev-for-keyboardmouse-passthrough">Configuring Evdev for Keyboard/Mouse Passthrough</h1>
+<p>ID the inputs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls /dev/input/by-id
+</span></span></code></pre></div><p>Confirm IDs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /dev/input/by-id/<span style="color:#ff79c6">[</span>input device id<span style="color:#ff79c6">]</span>
+</span></span></code></pre></div><p>Edit VM XML</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano virsh edit win10
+</span></span></code></pre></div><p>Add to file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span> <span style="color:#ff79c6">&lt;qemu:commandline&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ff79c6">&lt;qemu:arg</span> <span style="color:#50fa7b">value=</span><span style="color:#f1fa8c">&#39;-object&#39;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ff79c6">&lt;qemu:arg</span> <span style="color:#50fa7b">value=</span><span style="color:#f1fa8c">&#39;input-linux,id=mouse1,evdev=/dev/input/by-id/MOUSE_NAME&#39;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ff79c6">&lt;qemu:arg</span> <span style="color:#50fa7b">value=</span><span style="color:#f1fa8c">&#39;-object&#39;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ff79c6">&lt;qemu:arg</span> <span style="color:#50fa7b">value=</span><span style="color:#f1fa8c">&#39;input-linux,id=kbd1,evdev=/dev/input/by-id/KEYBOARD_NAME,grab_all=on,repeat=on&#39;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ff79c6">&lt;/qemu:commandline&gt;</span>
+</span></span></code></pre></div>
+
+</main>
+	
+<footer>
+	<p>&copy;2022 Blog</p>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blog</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Dec 2022 16:31:55 -0500</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GPU Passthrough KVM Setup (Arch Linux)</title>
+      <link>/posts/kvm-passthrough/</link>
+      <pubDate>Mon, 05 Dec 2022 16:31:55 -0500</pubDate>
+      
+      <guid>/posts/kvm-passthrough/</guid>
+      <description>Reference: PCI passthrough via OVMF
+Needed Downloads: Windows 10 ISO Virto Window Drivers
+Enable IMMOU in Grub Go to Grub file
+sudo nano /etc/default/grub Add IOMMU into grub
+amd_iommu=on or intel_iommu=on Rebuild Grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg REBOOT
+Check if IOMMU is enabled
+sudo dmesg | grep -i -e DMAR -e IOMMU Setup VFIO On GPU Get PCI IDs
+#!/bin/bash shopt -s nullglob for g in `find /sys/kernel/iommu_groups/* -maxdepth 0 -type d | sort -V`; do  echo &amp;#34;IOMMU Group ${g##*/}:&amp;#34;  for d in $g/devices/*; do  echo -e &amp;#34;\t$(lspci -nns ${d##*/})&amp;#34;  done; done; Make VFIO Configuration File</description>
+    </item>
+    
+    <item>
+      <title>Mta Data Feeds</title>
+      <link>/posts/mta-data-feeds/</link>
+      <pubDate>Thu, 01 Dec 2022 14:17:07 -0500</pubDate>
+      
+      <guid>/posts/mta-data-feeds/</guid>
+      <description>The MTA provides free API services for anyone to figure out why their train is delayed. Through their developer resources page on their site, they offer many different types of APIs for programmers to mess around with, for FREE.
+In this little project, I will be using the MTA&amp;rsquo;s services alerts feed API to display the latest subway service changes on a web page. This page will use vanilla javascript functions to fetch data.</description>
+    </item>
+    
+  </channel>
+</rss>

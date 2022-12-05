@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>api on Blog</title>
+    <link>/tags/api/</link>
+    <description>Recent content in api on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Dec 2022 14:17:07 -0500</lastBuildDate><atom:link href="/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mta Data Feeds</title>
+      <link>/posts/mta-data-feeds/</link>
+      <pubDate>Thu, 01 Dec 2022 14:17:07 -0500</pubDate>
+      
+      <guid>/posts/mta-data-feeds/</guid>
+      <description>The MTA provides free API services for anyone to figure out why their train is delayed. Through their developer resources page on their site, they offer many different types of APIs for programmers to mess around with, for FREE.
+In this little project, I will be using the MTA&amp;rsquo;s services alerts feed API to display the latest subway service changes on a web page. This page will use vanilla javascript functions to fetch data.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Mta Data Feeds | Blog</title>
+
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+
+	</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-nav">
+    <a class="logo" href="/">
+      <img alt="logo" src="/pics/logo.png" class="logo-img" />
+    </a>
+    <h3>
+      Blog
+    </h3>
+    <ul class="main-menu">
+      
+    </ul>
+    <ul>
+      <li>
+        <i class="fa-brands fa-linkedin"></i> 
+      </li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<main class="content">
+
+
+<h4><a href="/">Back to Posts</a></h4>
+
+<h1>Mta Data Feeds</h1>
+
+<ul class="tags">
+    
+        <li class="tag"><a href="/tags/javascript/">javascript</a></li>
+    
+        <li class="tag"><a href="/tags/api/">api</a></li>
+    
+</ul>
+
+
+<p>The MTA provides free API services for anyone to figure out why their train is delayed. Through their developer <a href="https://new.mta.info/developers">resources</a> page on their site, they offer many different types of APIs for programmers to mess around with, for FREE.</p>
+<p>In this little project, I will be using the MTA&rsquo;s services alerts feed API to display the latest subway service changes on a web page. This page will use vanilla javascript functions to fetch data.</p>
+<h2 id="getting-the-data">Getting the Data</h2>
+<p>First, we must request data using fetch. The data being retrieved is from <a href="">here</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> url <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts.json&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> KEY <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;y0502zWxdl9dgYO1NVYAQ17J3oKghY5q3SibNxp1&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fetch(url, {
+</span></span><span style="display:flex;"><span>        method<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;GET&#39;</span>,
+</span></span><span style="display:flex;"><span>        headers<span style="color:#ff79c6">:</span> myHeaders
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>.then((response =&gt; response.json()))
+</span></span><span style="display:flex;"><span>.then(data =&gt; {
+</span></span><span style="display:flex;"><span>        console.log(data)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>This gives back the data in a JSON format as seen here. The API brings back an array of objects with five items:</p>
+<ul>
+<li>
+<p>active_period</p>
+</li>
+<li>
+<p>desciption_text</p>
+</li>
+<li>
+<p>header_text</p>
+</li>
+<li>
+<p>informed_text</p>
+</li>
+<li>
+<p>transit_realtime.mercury_alert</p>
+</li>
+</ul>
+<p>Example:</p>
+<p><img src="https://user-images.githubusercontent.com/53241212/151103199-43c008e4-7993-4216-92c6-1fc6f85def35.jpg" alt="example-response"></p>
+<p>Now that we have the data, must display it. In this case, the service alerts will listed on a card showing the header text and the description, as well as the time uploaded to the system.</p>
+<p>To do this, a function needs to create that will render HTML
+associated with the data. This render function will then be executed
+after the fetch request is completed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> renderData <span style="color:#ff79c6">=</span> (data) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> html <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    html <span style="color:#ff79c6">+=</span> <span style="color:#f1fa8c">`
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &lt;div class=&#34;card&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            &lt;div class=&#34;card-head&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                &lt;p class=&#34;time&#34;&gt;</span><span style="color:#f1fa8c">${</span>updated<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                &lt;h1 class=&#34;header&#34;&gt;</span><span style="color:#f1fa8c">${</span>header_text<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&lt;/h1&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            &lt;p class=&#34;desc&#34;&gt;</span><span style="color:#f1fa8c">${</span>desc_text<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> &lt;/h1&gt; 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &lt;/div&gt; 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        `</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">document</span>.getElementById(<span style="color:#f1fa8c">&#34;content&#34;</span>).innerHTML <span style="color:#ff79c6">=</span> html
+</span></span></code></pre></div><h2 id="putting-the-subway-icons-on-the-results">Putting the Subway Icons on the Results</h2>
+<p>In order to display the result with the corresponding subway icons, the text must be parsed before it renders to the page. In the javascript, that is taken care of by using regex and replacing the selected text with an image of the appropriate icon.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> filteredText <span style="color:#ff79c6">=</span> (text) =&gt; {  
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> reg <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">/\[(.*?)\]/gm</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> arr <span style="color:#ff79c6">=</span> text.match(reg)
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> arr <span style="color:#ff79c6">=</span> reg.exec(text)
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> newText<span style="color:#ff79c6">=</span> text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (arr2 <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> letter <span style="color:#ff79c6">of</span> arr) {
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">let</span> train <span style="color:#ff79c6">=</span> letter.charAt(<span style="color:#bd93f9">1</span>).toLowerCase()
+</span></span><span style="display:flex;"><span>            newText <span style="color:#ff79c6">=</span> newText.replace(letter, <span style="color:#f1fa8c">`&lt;img src=&#34;./icons/</span><span style="color:#f1fa8c">${</span>train<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">.svg&#34; id=&#34;icon&#34;/&gt;`</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> text
+</span></span><span style="display:flex;"><span>    } 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> newText
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+</main>
+	
+<footer>
+	<p>&copy;2022 Blog</p>
+</footer>
+
+</body>
+</html>
+
